@@ -4,15 +4,15 @@ This repository contains my daily notes, code implementations, and problem-solvi
 
  Topics:
 
- Time Complexity
- Arrays
- Strings
- Recursion
- Linked List
- Stack
- Queue
- Trees
- Graphs
+ Time Complexity,
+ Arrays,
+ Strings,
+ Recursion,
+ Linked List,
+ Stack,
+ Queue,
+ Trees,
+ Graphs,
  Dynamic Programming
 
  Goal
