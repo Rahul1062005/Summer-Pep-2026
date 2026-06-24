@@ -48,3 +48,53 @@ public:
         return nums;
     }
 };
+
+
+
+https://www.geeksforgeeks.org/problems/largest-element-in-array4009/1
+
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        
+        int maxi = arr[0];
+        
+        for(int i = 1; i < arr.size(); i++) {
+            if(arr[i] > maxi) {
+                maxi = arr[i];
+            }
+        }
+        
+        return maxi;
+        
+    }
+};
+
+
+
+https://www.geeksforgeeks.org/problems/second-largest3735/1
+
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        
+        int largest = -1;
+        int secondLargest = -1;
+        
+        for(int i = 0; i < arr.size(); i++) {
+            
+            if(arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            }
+            else if(arr[i] < largest && arr[i] > secondLargest) {
+                secondLargest = arr[i];
+            }
+        }
+        
+        return secondLargest;
+    }
+};
+
+
+
