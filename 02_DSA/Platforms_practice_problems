@@ -1,0 +1,129 @@
+https://www.geeksforgeeks.org/problems/reverse-an-array/1
+
+class Solution {
+  public:
+    void reverseArray(vector<int> &arr) {
+        // code here
+        int i = 0;
+        int j = arr.size()-1;
+        
+        while (i<j){
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+};
+//-------------------------------------------------------------------------------------------------------------------------------
+
+
+https://www.geeksforgeeks.org/problems/check-if-an-array-is-sorted0701/1
+
+class Solution {
+  public:
+    bool isSorted(vector<int>& arr) {
+        
+        for(int i = 0; i < arr.size() - 1; i++) {
+            
+            if(arr[i] > arr[i + 1]) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+};
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+https://leetcode.com/problems/running-sum-of-1d-array/submissions/2042986365/
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+         for(int i = 1; i < nums.size(); i++) {
+            nums[i] = nums[i] + nums[i - 1];
+        }
+
+        return nums;
+    }
+};
+//-----------------------------------------------------------------------------------------------------------------------------
+
+
+https://www.geeksforgeeks.org/problems/largest-element-in-array4009/1
+
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        
+        int maxi = arr[0];
+        
+        for(int i = 1; i < arr.size(); i++) {
+            if(arr[i] > maxi) {
+                maxi = arr[i];
+            }
+        }
+        
+        return maxi;
+        
+    }
+};
+//----------------------------------------------------------------------------------------------------------------------------------
+
+
+https://www.geeksforgeeks.org/problems/second-largest3735/1
+
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        
+        int largest = -1;
+        int secondLargest = -1;
+        
+        for(int i = 0; i < arr.size(); i++) {
+            
+            if(arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            }
+            else if(arr[i] < largest && arr[i] > secondLargest) {
+                secondLargest = arr[i];
+            }
+        }
+        
+        return secondLargest;
+    }
+};
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+
+https://leetcode.com/problems/max-consecutive-ones/submissions/2044106649/
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+
+        int count = 0;
+        int maxCount = 0;
+
+        for(int i = 0; i < nums.size(); i++) {
+
+            if(nums[i] == 1) {
+                count++;
+                maxCount = max(maxCount, count);
+            }
+            else {
+                count = 0;
+            }
+        }
+
+        return maxCount;
+    }
+};
+//------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+

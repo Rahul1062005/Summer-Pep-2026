@@ -1,0 +1,28 @@
+Time Complexity :--
+
+
+
+Big O --> represents 
+
+
+1. O(1) --> Constant time --> the time taken doesn't 
+
+
+2. O(log n) --> Logarithmic time --> this grows logarithmitically 
+
+3. O(n) --> Linear time --> the time grows directly proprtional to input size
+
+for(int i = 0; i < n; i++){
+    for(int j = 0; j < 5; j++){
+
+    }
+}
+
+4. O(nlogn) --> Linearithmic time --> a mix of logarithmic and Linear
+
+
+5. O(n^2) --> Quadratic time --> time grows propartionally to square of input size
+
+
+
+
