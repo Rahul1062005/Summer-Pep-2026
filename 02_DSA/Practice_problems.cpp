@@ -74,8 +74,8 @@
 
 // Recursion Problems
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
 // void printNumbers(int n)
 // {
@@ -99,24 +99,45 @@ using namespace std;
 //     return 0;
 // }
 //---------------------------------------------------------
-int factorial(int n){
-    if(n == 0 || n == 1) return 1;
+// int factorial(int n){
+//     if(n == 0 || n == 1) return 1;
 
-    return n * factorial(n - 1);
-}
+//     return n * factorial(n - 1);
+// }
 
-int fib(int n){
-    if(n == 0) return 0;
-    if(n == 1) return 1;
+// int fib(int n){
+//     if(n == 0) return 0;
+//     if(n == 1) return 1;
 
-    return fib(n-1) + fib(n - 2);
-}
+//     return fib(n-1) + fib(n - 2);
+// }
 
-int main()
-{
-    cout << factorial(5);
-}
+// int main()
+// {
+//     cout << factorial(5);
+// }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
 
+//2d array
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int arr[3][4];
+
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
+            cin >> arr[i][j];
+        }
+    }
+
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
