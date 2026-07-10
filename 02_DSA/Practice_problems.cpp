@@ -122,22 +122,76 @@
 
 //2d array
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// int main(){
+//     int arr[3][4];
+
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < 4; j++){
+//             cin >> arr[i][j];
+//         }
+//     }
+
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < 4; j++){
+//             cout << arr[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+
+//Stack overflow and underflow
+
+// #include<iostream>
+// using namespace std;
+
+// class MyStack{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     void pop(){
+
+//         if(top == -1)
+//     }
+
+
+// }
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+#include<iostream>
+#include<stack>
 using namespace std;
 
-int main(){
-    int arr[3][4];
+int main()
+{
+    stack<int> st;
+    st.push(5);
+    st.push(15);
+    st.push(25);
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 4; j++){
-            cin >> arr[i][j];
-        }
-    }
+    cout << "top element : " << st.top() << endl;
+    st.pop();
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 4; j++){
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout << "top element : " << st.top() << endl;
 }
