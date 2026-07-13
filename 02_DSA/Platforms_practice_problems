@@ -594,6 +594,98 @@ public:
 };
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.geeksforgeeks.org/problems/stack-using-queue/1
+
+class myStack {
+    queue<int> q;
+
+public:
+    void push(int x) {
+        q.push(x);
+
+        int n = q.size();
+        while (n > 1) {
+            q.push(q.front());
+            q.pop();
+            n--;
+        }
+    }
+
+    void pop() {
+        if (!q.empty())
+            q.pop();
+    }
+
+    int top() {
+        if (q.empty())
+            return -1;
+        return q.front();
+    }
+
+    int size() {
+        return q.size();
+    }
+};
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://www.geeksforgeeks.org/problems/queue-reversal/1
+
+class Solution {
+public:
+    void reverseQueue(queue<int> &q) {
+        stack<int> st;
+
+        // Move all elements from queue to stack
+        while (!q.empty()) {
+            st.push(q.front());
+            q.pop();
+        }
+
+        // Move all elements back to queue
+        while (!st.empty()) {
+            q.push(st.top());
+            st.pop();
+        }
+    }
+};
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+https://www.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1
+
+class Solution {
+public:
+    queue<int> reverseFirstK(queue<int> q, int k) {
+
+        if (k > q.size())
+            return q;
+
+        stack<int> st;
+        int n = q.size();
+
+        // Step 1: Push first k elements into stack
+        for (int i = 0; i < k; i++) {
+            st.push(q.front());
+            q.pop();
+        }
+
+        // Step 2: Push stack elements back to queue
+        while (!st.empty()) {
+            q.push(st.top());
+            st.pop();
+        }
+
+        // Step 3: Rotate remaining n-k elements
+        for (int i = 0; i < n - k; i++) {
+            q.push(q.front());
+            q.pop();
+        }
+
+        return q;
+    }
+};
+//-------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
