@@ -531,6 +531,69 @@ public:
 };
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.geeksforgeeks.org/problems/delete-middle-element-of-a-stack/1
+
+class Solution {
+public:
+    void solve(stack<int> &s, int k) {
+        // Middle element reached
+        if (k == 1) {
+            s.pop();
+            return;
+        }
+
+        int temp = s.top();
+        s.pop();
+
+        solve(s, k - 1);
+
+        s.push(temp);
+    }
+
+    void deleteMid(stack<int>& s) {
+        int n = s.size();
+        int k = (n / 2) + 1;   // Position of middle element from the top
+        solve(s, k);
+    }
+};
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+https://leetcode.com/problems/min-stack/submissions/2065652286/
+
+class MinStack {
+public:
+    stack<int> st;
+    stack<int> minSt;
+
+    MinStack() {
+        
+    }
+
+    void push(int val) {
+        st.push(val);
+
+        if (minSt.empty() || val <= minSt.top()) {
+            minSt.push(val);
+        }
+    }
+
+    void pop() {
+        if (st.top() == minSt.top()) {
+            minSt.pop();
+        }
+        st.pop();
+    }
+
+    int top() {
+        return st.top();
+    }
+
+    int getMin() {
+        return minSt.top();
+    }
+};
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
