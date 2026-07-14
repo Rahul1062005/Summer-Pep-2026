@@ -686,6 +686,41 @@ public:
 };
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.geeksforgeeks.org/problems/interleave-the-first-half-of-the-queue-with-second-half/1
+
+class Solution {
+public:
+    void rearrangeQueue(queue<int> &q) {
+
+        int n = q.size();
+        int half = n / 2;
+
+        queue<int> first;
+        queue<int> ans;
+
+        // Store first half
+        for (int i = 0; i < half; i++) {
+            first.push(q.front());
+            q.pop();
+        }
+
+        // Interleave
+        while (!first.empty()) {
+            ans.push(first.front());
+            first.pop();
+
+            ans.push(q.front());
+            q.pop();
+        }
+
+        // Copy back
+        q = ans;
+    }
+};
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 
