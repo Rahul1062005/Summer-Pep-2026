@@ -279,6 +279,30 @@
 // }
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
+// Template for node in a tree
+
+// #include<iostream>
+// using namespace std;
+
+// class Node{
+// public:
+//     Node* left;
+//     Node* right;
+//     int data;
+//     Node(int val){
+//         data = val;
+//         left = nullptr;
+//         right = nullptr;
+//     }
+// };
+
+// int main(){
+
+// }
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+// Functions for pre-order, in-order and post-order
+
 #include<iostream>
 using namespace std;
 
@@ -294,6 +318,29 @@ public:
     }
 };
 
-int main(){
-    
+void preorder(Node* root){
+    if(!root) return;
+    cout<<root->data<<endl;
+    preorder(root->left);
+    preorder(root->right);
 }
+
+void inorder(Node* root){
+    if(!root) return;
+    inorder(root->left);
+    cout<<root->data<<endl;
+    inorder(root->right);
+}
+
+void postorder(Node* root){
+    if(!root) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<endl;
+}
+
+int main(){
+
+}
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
