@@ -301,7 +301,7 @@
 // }
 //------------------------------------------------------------------------------------------------------------------------------------------
 
-// Functions for pre-order, in-order and post-order
+// Functions for pre-order, in-order, post-order, countNode, countLeaf
 
 #include<iostream>
 using namespace std;
@@ -337,6 +337,21 @@ void postorder(Node* root){
     postorder(root->left);
     postorder(root->right);
     cout<<root->data<<endl;
+}
+
+int countNode(Node* root){
+    if (root == nullptr) return 0;
+    int x = countNode(root->left);
+    int y = countNode(root->right);
+    return 1+x+y;
+}
+
+int countLeaf(Node* root){
+    if(root == nullptr) return 0;
+    if(root->left == nullptr && root->right == nullptr){
+        return 1;
+    }
+    return countLeaf(root->left) + countLeaf(root->right);
 }
 
 int main(){
