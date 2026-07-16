@@ -964,6 +964,69 @@ public:
 };
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.geeksforgeeks.org/problems/sum-of-binary-tree/1
+
+class Solution {
+public:
+    int sumBT(Node* root) {
+
+        if(root == NULL)
+            return 0;
+
+        return root->data + sumBT(root->left) + sumBT(root->right);
+    }
+};
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+https://leetcode.com/problems/sum-of-left-leaves/submissions/2069425744/
+
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+
+        if(root == NULL)
+            return 0;
+
+        int sum = 0;
+
+        // Check if left child is a leaf
+        if(root->left &&
+           root->left->left == NULL &&
+           root->left->right == NULL)
+        {
+            sum += root->left->val;
+        }
+
+        sum += sumOfLeftLeaves(root->left);
+        sum += sumOfLeftLeaves(root->right);
+
+        return sum;
+    }
+};
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+https://leetcode.com/problems/same-tree/submissions/2069437138/
+
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+
+        if(p == NULL && q == NULL)
+            return true;
+
+        if(p == NULL || q == NULL)
+            return false;
+
+        if(p->val != q->val)
+            return false;
+
+        return isSameTree(p->left, q->left) &&
+               isSameTree(p->right, q->right);
+    }
+};
+
+//===========================================================================================================================================
+
 
 
 
