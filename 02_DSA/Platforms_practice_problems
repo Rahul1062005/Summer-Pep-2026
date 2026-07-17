@@ -1027,6 +1027,91 @@ public:
 
 //===========================================================================================================================================
 
+https://leetcode.com/problems/binary-tree-level-order-traversal/submissions/2070563731/
+
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+
+        vector<vector<int>> ans;
+
+        if(root == NULL)
+            return ans;
+
+        queue<TreeNode*> q;
+        q.push(root);
+
+        while(!q.empty()) {
+
+            int size = q.size();
+
+            vector<int> level;
+
+            for(int i = 0; i < size; i++) {
+
+                TreeNode* node = q.front();
+                q.pop();
+
+                level.push_back(node->val);
+
+                if(node->left)
+                    q.push(node->left);
+
+                if(node->right)
+                    q.push(node->right);
+            }
+
+            ans.push_back(level);
+        }
+
+        return ans;
+    }
+};
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/submissions/2070590354/
+
+class Solution {
+public:
+    long long kthLargestLevelSum(TreeNode* root, int k) {
+
+        queue<TreeNode*> q;
+        q.push(root);
+
+        vector<long long> sums;
+
+        while (!q.empty()) {
+
+            int size = q.size();
+            long long sum = 0;
+
+            for (int i = 0; i < size; i++) {
+
+                TreeNode* node = q.front();
+                q.pop();
+
+                sum += node->val;
+
+                if (node->left)
+                    q.push(node->left);
+
+                if (node->right)
+                    q.push(node->right);
+            }
+
+            sums.push_back(sum);
+        }
+
+        if (sums.size() < k)
+            return -1;
+
+        sort(sums.begin(), sums.end());
+
+        return sums[sums.size() - k];
+    }
+};
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
