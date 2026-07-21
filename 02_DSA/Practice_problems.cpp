@@ -303,60 +303,96 @@
 
 // Functions for pre-order, in-order, post-order, countNode, countLeaf
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-class Node{
-public:
-    Node* left;
-    Node* right;
-    int data;
-    Node(int val){
-        data = val;
-        left = nullptr;
-        right = nullptr;
-    }
-};
+// class Node{
+// public:
+//     Node* left;
+//     Node* right;
+//     int data;
+//     Node(int val){
+//         data = val;
+//         left = nullptr;
+//         right = nullptr;
+//     }
+// };
 
-void preorder(Node* root){
-    if(!root) return;
-    cout<<root->data<<endl;
-    preorder(root->left);
-    preorder(root->right);
-}
+// void preorder(Node* root){
+//     if(!root) return;
+//     cout<<root->data<<endl;
+//     preorder(root->left);
+//     preorder(root->right);
+// }
 
-void inorder(Node* root){
-    if(!root) return;
-    inorder(root->left);
-    cout<<root->data<<endl;
-    inorder(root->right);
-}
+// void inorder(Node* root){
+//     if(!root) return;
+//     inorder(root->left);
+//     cout<<root->data<<endl;
+//     inorder(root->right);
+// }
 
-void postorder(Node* root){
-    if(!root) return;
-    postorder(root->left);
-    postorder(root->right);
-    cout<<root->data<<endl;
-}
+// void postorder(Node* root){
+//     if(!root) return;
+//     postorder(root->left);
+//     postorder(root->right);
+//     cout<<root->data<<endl;
+// }
 
-int countNode(Node* root){
-    if (root == nullptr) return 0;
-    int x = countNode(root->left);
-    int y = countNode(root->right);
-    return 1+x+y;
-}
+// int countNode(Node* root){
+//     if (root == nullptr) return 0;
+//     int x = countNode(root->left);
+//     int y = countNode(root->right);
+//     return 1+x+y;
+// }
 
-int countLeaf(Node* root){
-    if(root == nullptr) return 0;
-    if(root->left == nullptr && root->right == nullptr){
-        return 1;
-    }
-    return countLeaf(root->left) + countLeaf(root->right);
-}
+// int countLeaf(Node* root){
+//     if(root == nullptr) return 0;
+//     if(root->left == nullptr && root->right == nullptr){
+//         return 1;
+//     }
+//     return countLeaf(root->left) + countLeaf(root->right);
+// }
 
 
-int main(){
+// int main(){
 
-}
+// }
 //--------------------------------------------------------------------------------------------------------------------------------------------
+
+// Graphs
+
+#include<iostream>
+#include<unordered_map>
+#include<list>
+
+using namespace std;
+int main(){
+    int n;
+    int m;
+
+    cout << "Enter the no of vertices: " << endl;
+    cin >> n;
+    cout << "Enter the no of edges : " << endl;
+    cin >> m;
+
+    unordered_map<int, list<int>> adjList;
+    cout << "Enter edges (u, v) : " << endl;
+
+    for (int i = 0; i < m; i++){
+        int u, v;
+        cin >> u >> v;
+        adjList[u].push_back(v);
+        adjList[v].push_back(u);
+    }
+
+    cout << "Adj list is : " << endl;
+    for (auto i : adjList){
+        cout << i.first << "->";
+        for(auto j : i.second){
+            cout << j <<" ";
+        }
+        cout << endl;
+    }
+}
 
