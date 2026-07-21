@@ -1264,6 +1264,44 @@ public:
 };
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
+https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
+
+class Solution {
+public:
+    vector<int> bfs(vector<vector<int>> &adj) {
+
+        int n = adj.size();
+
+        vector<int> ans;
+        vector<bool> vis(n, false);
+
+        queue<int> q;
+
+        q.push(0);
+        vis[0] = true;
+
+        while (!q.empty()) {
+
+            int node = q.front();
+            q.pop();
+
+            ans.push_back(node);
+
+            for (int neighbour : adj[node]) {
+
+                if (!vis[neighbour]) {
+
+                    vis[neighbour] = true;
+                    q.push(neighbour);
+                }
+            }
+        }
+
+        return ans;
+    }
+};
+//------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
